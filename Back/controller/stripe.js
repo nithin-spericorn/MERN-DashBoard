@@ -1,5 +1,5 @@
 const env=require("dotenv").config()
-const stripe=require("stripe")("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")
+const stripe=require("stripe")("stripekey here")
 console.log(process.env.STRIPE_KEY)
 module.exports={
   
