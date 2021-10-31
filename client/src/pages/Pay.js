@@ -3,7 +3,7 @@ import React, { useState,useEffect } from 'react'
 import { useHistory } from 'react-router'
 import StripeCheckout from 'react-stripe-checkout'
 
-const KEY="pk_live_51JEuA2SDb2shNrKvs5y8mjYXnhsH96SPB47kWUamZdtrTqRN63rSk1haMIhvoxhnXkSBo8mmEyyKZa9Z9zkPsgCU00tY2Eedoa"
+const KEY="pk"
 
 const Pay = () => {
     const [stripeToken,setstripeToken]=useState(null)
