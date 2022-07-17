@@ -9,7 +9,8 @@ const WidgestSm = ({
   leaders
 }) => {
 
-  const [leader,setLeader]=useState([])
+  const [leader,setLeader]=useState(leaders?.leaders||[])
+  const [more,setMore]=useState(3)
 
   useEffect(()=>{
   const getUsers= async ()=>{
@@ -25,8 +26,9 @@ const WidgestSm = ({
   },[])
   useEffect(()=>{
     console.log("leaders",leaders)
-    setLeader(leaders?.leaders)
-  },[leaders])
+    setLeader(leaders?.leaders?.slice(0,more))
+    //setLeader(leader.slice(0,more))
+  },[leaders,more])
 
     return (
 <div className="widgetSm">
@@ -83,6 +85,14 @@ const WidgestSm = ({
          )}
         
       </ul>
+      {leader?.length===3 && (<button
+      onClick={()=>setMore(leaders?.length||20)}>
+        Load More
+      </button>)}
+      {leader?.length===leaders?.leaders.length && (<button
+      onClick={()=>setMore(3)}>
+        Show Less
+      </button>)}
     </div>
     )
 }
