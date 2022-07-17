@@ -7,7 +7,7 @@ import {
     Tooltip,
     ResponsiveContainer,
   } from "recharts";
-const Chart = ({title,data,dataKey,grid}) => {
+const Chart = ({title="Todays Trandings",data=[1,2,3],dataKey,grid=4}) => {
    
     return (
         <div className="chart">

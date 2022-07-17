@@ -3,10 +3,12 @@
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     padding: 20px;
-    margin-right: 20px;
+   width: 250px;
+    margin-left: 20px;
 }
 
 .widgetSmTitle{
+    display: flex;
     font-size: 22px;
     font-weight: 600;
 }
@@ -16,6 +18,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    padding-top: 52px;
 }
 
 .widgetSmList{
@@ -27,9 +30,18 @@
 .widgetSmListItem{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 20px 0px;
+  
+    margin: 10px 0px;
 }
+.t{
+    padding: 15px;
+    margin-left: 10px;
+    margin-top: 40px;
+}
+.g{
+    display: flex
+}
+
 
 .widgetSmUser{
     display: flex;
@@ -38,10 +50,12 @@
 
 .widgetSmUsername{
     font-weight: 600;
+    margin-left: 10px;
 }
 
 .widgetSmUserTitle{
     font-weight: 300;
+    margin-left: 5px;
 }
 
 .widgetSmButton{
@@ -53,9 +67,16 @@
     background-color: #eeeef7;
     color: #555;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .widgetSmIcon{
     font-size: 16px !important;
     margin-right: 5px;
+}
+.topAvatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }

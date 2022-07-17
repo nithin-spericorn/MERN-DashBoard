@@ -1,36 +1,74 @@
 import "./widgestSm.css"
 import { Visibility } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-import { userRequest } from "../../requestMethods";
-export const WidgestSm = () => {
+//import { userRequest } from "../../requestMethods";
+import {getAllLeaders} from "./widgestSlice"
+import { connect } from "react-redux";
+const WidgestSm = ({
+  getAllLeaders,
+  leaders
+}) => {
 
-  const [users,setUsers]=useState([])
+  const [leader,setLeader]=useState([])
 
   useEffect(()=>{
   const getUsers= async ()=>{
     try{
-    const res=await userRequest.get("/users?new=true")
-    setUsers(res.data)
+    
+    getAllLeaders();
     }catch(error){
 
     }
   }
   getUsers()
+ 
   },[])
+  useEffect(()=>{
+    console.log("leaders",leaders)
+    setLeader(leaders?.leaders)
+  },[leaders])
 
     return (
 <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
-      <ul className="widgetSmList">
-        {users.map(user=>(
-        <li className="widgetSmListItem" key={user._id}>
-          <img
-            src={user.img}
-            alt=""
-            className="widgetSmImg"
+      <span className="widgetSmTitle">Leadersboard</span>
+      {/* {leader && leader.map(item=>{
+        <ul className="widgetSmListItem">
+         <li>
+         <img
+            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""
+            className="topAvatar"
           />
+          <section className="t">{"jjjj"}</section>
+         </li>
+        </ul>
+})} */}
+      {/* <div className="widgetSmListItem">
+      <img
+            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""
+            className="topAvatar"
+          />
+          <section className="t">{"jj"}</section>
+      </div>
+      <div className="widgetSmListItem">
+      <img
+            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""
+            className="topAvatar"
+          />
+          <section className="t">nithin</section>
+      </div> */}
+          
+      <ul className="widgetSmList">
+        {leader?.length ?(leader.map(user=>(
+        <li className="widgetSmListItem" key={1}>
+          <img
+            src={user.image} alt=""
+            className="topAvatar"
+          />
+          
+                    
+                
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">{user.username}</span>
+            <span className="widgetSmUsername">{user.name}</span>
             <span className="widgetSmUserTitle">Software Engineer</span>
           </div>
           <button className="widgetSmButton">
@@ -38,9 +76,23 @@ export const WidgestSm = () => {
             Display
           </button>
         </li>
-        ))}
+        ))):(<>
+        <h1 className="t">No Leaders records in DataBase</h1>
+        </>
+        
+         )}
         
       </ul>
     </div>
     )
 }
+const mapDispatchToProps = (dispatch) => ({
+  getAllLeaders: () => dispatch(getAllLeaders()),
+  
+});
+const mapStateToProps = (state) => ({
+  leaders: state.entities.leaders.Leaders,
+  isLoading: state.entities.leaders.isLoading,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WidgestSm);

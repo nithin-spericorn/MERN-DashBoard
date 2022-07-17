@@ -1,7 +1,10 @@
 .home{
-    flex:4
+    flex:4;
 }
 .homeWidgest{
     display: flex;
     margin: 20px;
+}
+.graph{
+  display: flex;  
 }

@@ -41,13 +41,13 @@ const Sidebar = () => {
             <div className="sidebarMenu"> 
             <h3 className="sidebarTitle">Quick Menu</h3>
             <ul className="sidebarlist">
-              <Link to="/users" className="link">
+              <Link to="/" className="link">
                 <li className="sidebarlistitem">
                   <PermIdentity className="sidebarIcon"/>
                   User
                 </li>
                 </Link>
-                <Link to="/products" className="link">
+                <Link to="/" className="link">
                 <li className="sidebarlistitem">
                   <Storefront  className="sidebarIcon"/>
                   Products

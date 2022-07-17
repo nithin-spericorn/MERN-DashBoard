@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { userRequest } from "../../requestMethods";
+//import { userRequest } from "../../requestMethods";
 import {format} from "timeago.js"
 import "./widgestLg.css"
 
@@ -11,8 +11,8 @@ export const WidgestLg = () => {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const res = await userRequest.get("orders");
-        setOrders(res.data);
+        //const res = await userRequest.get("orders");
+        //setOrders(res.data);
       } catch {}
     };
     getOrders();
